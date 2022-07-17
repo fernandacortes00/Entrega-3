@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jul 11 10:12:18 2022
+
+@author: fernandacortes
+"""
+#### Install the package:
+
+
+#### Import package
+from wwo_hist import retrieve_hist_data
+
+#### Set working directory to store output csv file(s)
+import os
+os.chdir("/Users/fernandacortes/Desktop/Herramientas/Clase 3/out/weather")
+
+#### Example code
+frequency=12
+start_date = '1-JAN-2015'
+end_date = '31-DEC-2015'
+api_key = '9a2b9a86c4124b27b65124635221107'
+# agrego Zipcode de Swaton, Garret 21561
+location_list = ['20637', '20653', '20688', '20724', '20742', '20871', '21040', '21043', '21158', '21208', '21231', '21502', '21601', '21638', '21639', '21643', '21651', '21709', '21740', '21801', '21811', '21853', '21902','21561']
+
+hist_weather_data = retrieve_hist_data(api_key,
+                                location_list,
+                                start_date,
+                                end_date,
+                                frequency,
+                                location_label = False,
+                                export_csv = True,
+                                store_df = True)
